@@ -1,0 +1,15 @@
+[Unit]
+Description=elvesro login server
+After=syslog.target network.target mysqld.service
+
+[Service]
+WorkingDirectory=/home/rathena/Desktop/rAthena
+User=rathena
+ExecStart=/home/rathena/Desktop/elvesro/login-server
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
